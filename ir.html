@@ -1,0 +1,648 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Tax Pay - Simplesmente fácil!</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="ir.css">
+    <script src="JS/ir.js"></script>
+    <script src="JS/irbrasil.js"></script>
+    <script src="JS/ir_brasil_stocks.js"></script>
+    <script src="JS/ir_brasil_fiis.js"></script>
+    <script src="JS/ir_brasil_options.js"></script>
+    <script src="JS/ir_brasil_futures.js"></script>
+    <script src="JS/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="JS/app.js"></script>
+
+  </head>
+  
+  <body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <!--<h5 class="my-0 mr-md-auto font-weight-normal">Tax Pay</h5>-->
+  
+  <img src="Images/logo_transparent.jpg" alt="Logo">
+  
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="ir.html">Home</a>
+    <a class="p-2 text-dark" href="ir2.html">Planos</a>
+    <a class="p-2 text-dark" href="ir3.html">Legislação</a>
+    <a class="p-2 text-dark" href="ir3.html">Login</a>
+    
+  </nav>
+  <a class="btn btn-outline-primary" href="ir5.html">Cadastre-se</a>
+
+
+</div>
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Imposto é fácil com a Tax Pay</h1>
+      <p class="lead">De forma simples e objetiva, você conseguira realizar seus cálculos para pagamento dos seus ganhos de capital no Brasil e no exterior.</p>
+    </div>
+    </div>
+</div>
+
+<h2 id="title2"class="display-4 mx-auto">Escolha o seu tipo de investimento</h2>
+
+<!--<p class="lead" id="paragraph">Selecione o tipo de investimento para fazermos o cálculo automático.</p>-->
+<p class="lead" id="paragraph">Siga o passo a passo abaixo para o calculo automático dos seus tributos</p>
+<br>
+
+
+
+<div id=investmentbrazil class="investment">Investimento no Exterior<br></div>
+<ol id="parexterior" class="paragraph1">
+  <br>
+  <li id="paragraph1">Selecione Investimento no Brasil</li>
+  <li id="paragraph1">Escolha a classe do ativo (açoes, FIIs, opções ou futuros) </li>
+  <li id="paragraph1">Preencha os dados necessários para o cálculo </li>
+  <li id="paragraph1">Clique em CALCULAR, finalize a sessão ou salve o tributo</li>
+  <li id="paragraph1">Refaça o processo para adicionar outros cálculos </li>
+
+</ol>
+
+<div id="container_foreign">
+    <form>
+      <h2 id="title2"class="display-4 mx-auto">Ativos nos Exterior</h2>
+          <div class="mb-3">
+            <label for="username">Qual o valor do investimento em USD</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">USD</span>
+              </div>
+              <input type="text" class="form-control" inputmode="numeric" id="valorinvestimento" placeholder="digite o valor" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="username">Qual o valor da venda em USD?</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">USD</span>
+              </div>
+              <input type="text" class="form-control" id="valorvenda" placeholder="digite o valor" required>
+         
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="username">Ptax do dia da compra?</label><span>Cheque aqui</span>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">BRL</span>
+              </div>
+              <input type="text" class="form-control" id="ptaxcompra" placeholder="digite o valor" required>
+         
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="username">Ptax do dia da venda?</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">BRL</span>
+              </div>
+              <input type="text" class="form-control" id="ptaxvenda" placeholder="digite o valor" required>
+         
+            </div>
+          </div>
+          <label for="username">Utilizou o limite de R$ 35.000 no mês?</label><br/>
+          <label><input id="l1"type="radio" name="gender" value="Sim" >Sim</label><br/>
+          <label><input id="l2" type="radio" name="gender" value="Não" onclick="limit35()">Não</label><br/>
+          
+          <!--<div class="alert alert-success" id="a3" role="alert" onclick=unDo4()>
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Não precisa pagar imposto por conta do limite mensal de R$ 20.000.</p>
+            <p>Clique aqui para fechar essa janela.</p>
+          </div>-->
+          
+        
+          
+          <div class="container-darf1" id="container_darf_1" onclick="taxcalc()">
+            CALCULAR TRIBUTO 
+            </div>
+          
+          <div class="container-darf2" id="container_darf_2" onclick="unDo()">
+            VALOR TRIBUTO
+            </div>
+</div>
+
+<div id=investmentbrazil2 class=investment>Investimento no Brasil<br></div>
+<br>
+
+<ol id="pardomestico" class="paragraph1">
+  <li id="paragraph1">Selecione Investimento no Brasil ou no Exterior </li>
+  <li id="paragraph1">Escolha a classe do ativo (açoes, FIIs, opções ou futuros) </li>
+  <li id="paragraph1">Preencha os dados necessários para o cálculo </li>
+  <li id="paragraph1">Clique em CALCULAR, finalize a sessão ou salve o tributo</li>
+  <li id="paragraph1">Refaça o processo para adicionar outros cálculos </li>
+
+</ol>
+
+<div id ="optionbrazil">
+  <label for="assetclass1">Qual tipo de ativo alienou?</label><br/>
+  <label><input id="l8" type="checkbox" name="assetclass" value="Ações" onclick="tabhide3()">Ações</label>
+  <label><input id="l9" type="checkbox" name="assetclass" value="FIIs" onclick="tabhide4()">FIIs</label>
+  <label><input id="l10" type="checkbox" name="assetclass" value=" Opções" onclick="tabhide5()">Opções</label>
+  <label><input id="l11" type="checkbox" name="assetclass" value=" Futuros" onclick="tabhide6()" >Futuros</label>
+</div>
+
+<!--<div id="container_domestic">
+  <form>
+        <div class="mb-3">
+          <label for="username">Qual o valor da compra em ações em BRL</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorinvestimentobrl" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual o valor da venda das ações em BRL?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorvendabrl" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual os custos de corretagem na compra e venda das ações?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="brokeragecost" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Quais taxas da Bolsa na operação em ações (como Emolumentos, Registro e Liquidação)?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="feecost" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Verifique aqui se algum dos ativos que vendeu é isento de IR:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Ticker</span>
+            </div>
+            <input type="text" class="form-control" id="assetbr" placeholder="Ex: PETR4 - ticker letras maiúsculas" required onchange="tickercheck()">
+       
+          </div>
+        </div>
+
+        <div class="alert alert-success" id="a2" role="alert" onclick=unDo3()>
+          <p>Qualquer valor obtido na venda desse não terá incidência no Imposto de Renda, conforme instrução da Receita Federal que durará até 31 de dezembro de 2023.</p>
+          <p>Clique aqui para fechar essa janela.</p>
+        </div>
+
+        <label for="username">Utilizou o limite de R$ 20.000 no mês?</label><br/>
+        <label><input id="l3" type="radio" name="gender" value="Sim" >Sim</label><br/>
+        <label><input id="l4" type="radio" name="gender" value="Não" onclick="limit20()">Não</label><br/>
+
+        <div class="alert alert-success" id="a3" role="alert" onclick=unDo4()>
+          <h4 class="alert-heading">Well done!</h4>
+          <p>Não precisa pagar imposto por conta do limite mensal de R$ 20.000.</p>
+          <p>Clique aqui para fechar essa janela.</p>
+        </div>
+
+        <label for="username">Compra e venda no mesmo dia?</label><br/>
+        <label><input id="l5" type="radio" name="gender" value="Sim" onclick="daytrade()">Sim</label><br/>
+        <label><input id="l6" type="radio" name="gender" value="Não" >Não</label><br/>
+       
+           
+      <div class="container-darf" id="container_darf_3" onclick="taxcalc2()">
+        CALCULAR TRIBUTO 
+        </div>
+      
+      <div class="container-darf" id="container_darf_4" onclick="unDo2()">
+        VALOR TRIBUTO
+        </div>
+    
+      </div> 
+</div>-->
+
+<div id="container_domestic_stocks">
+  <form>
+    <h2 id="title2"class="display-4 mx-auto">Ações</h2>
+        <div class="mb-3">
+          <label for="username">Qual o valor da compra em ações em BRL</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorinvestimentobrl1" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual o valor da venda das ações em BRL?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorvendabrl1" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual os custos de corretagem na compra e venda das ações?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="brokeragecost1" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Quais taxas da Bolsa na operação em ações (como Emolumentos, Registro e Liquidação)?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="feecost1" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Verifique aqui se algum dos ativos que vendeu é isento de IR:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Ticker</span>
+            </div>
+            <input type="text" class="form-control" id="assetbr1" placeholder="Ex: PETR4 - ticker letras maiúsculas" required onchange="tickercheck1()">
+       
+          </div>
+        </div>
+
+        <div class="alert alert-success" id="a21" role="alert" onclick=unDo31()>
+          <p>Qualquer valor obtido na venda desse não terá incidência no Imposto de Renda, conforme instrução da Receita Federal que durará até 31 de dezembro de 2023.</p>
+          <p>Clique aqui para fechar essa janela.</p>
+        </div>
+
+        <label for="username">Utilizou o limite de R$ 20.000 no mês?</label><br/>
+        <label><input id="l31" type="radio" name="gender" value="Sim" >Sim</label><br/>
+        <label><input id="l41" type="radio" name="gender" value="Não" onclick="limit201()">Não</label><br/>
+
+        <div class="alert alert-success" id="a31" role="alert" onclick=unDo41()>
+          <p>Não precisa pagar imposto por conta do limite mensal de R$ 20.000.</p>
+          <p>Clique aqui para fechar essa janela.</p>
+        </div>
+
+        <label for="username">Compra e venda no mesmo dia?</label><br/>
+        <label><input id="l51" type="radio" name="daytradebrasil" value="Sim" onclick="daytrade1()">Sim</label><br/>
+        <label><input id="l61" type="radio" name="daytradebrasil" value="Não" onclick="daytrade2()">Não</label><br/>
+       
+           
+      <div class="container-darf1" id="container_darf_31" onclick="taxcalc21()">
+        CALCULAR TRIBUTO 
+        </div>
+      
+      <div class="container-darf2" id="container_darf_41" onclick="unDo21()">
+        VALOR TRIBUTO
+        </div>
+
+      <div class="container-darf3" id="container_darf_53">
+          SALVAR TRIBUTO, CONTINUAR CALCULANDO
+          </div>
+
+      <div class="container-darf3" id="container_darf_53">
+          GERAR DARF
+            </div>
+
+      </div>  
+</div>
+
+<div id="container_domestic_fiis">
+  <form>
+    <h2 id="title2"class="display-4 mx-auto">FIIs</h2>
+        <div class="mb-3">
+          <label for="username">Qual o valor da compra do FII em BRL</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorinvestimentobrl2" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual o valor da venda do FII em BRL?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorvendabrl2" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual os custos de corretagem na compra e venda dO FII?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="brokeragecost2" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Quais taxas da Bolsa na operação em FII (como Emolumentos, Registro e Liquidação)?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="feecost2" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+           
+      <div class="container-darf1" id="container_darf_32" onclick="taxcalc22()">
+        CALCULAR TRIBUTO 
+        </div>
+      
+      <div class="container-darf2" id="container_darf_42" onclick="unDo22()">
+        VALOR TRIBUTO
+        </div>
+
+        <div class="container-darf3" id="container_darf_52">
+          SALVAR TRIBUTO, CONTINUAR CALCULANDO
+          </div>
+    
+      </div>  
+</div>
+
+<div id="container_domestic_options">
+  <form>
+    <h2 id="title2"class="display-4 mx-auto">Opções</h2>
+        <div class="mb-3">
+          <label for="username">Qual o valor de compra das opções em BRL</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorinvestimentobrl3" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual o valor da realização das opções em BRL?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorvendabrl3" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual os custos de corretagem na compra e venda das opções?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="brokeragecost3" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Quais taxas da Bolsa na operação em opções (como Emolumentos, Registro e Liquidação)?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="feecost3" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <label for="username">Compra e venda no mesmo dia?</label><br/>
+        <label><input id="l52" type="radio" name="daytradebrasil" value="Sim" onclick="daytrade3()">Sim</label><br/>
+        <label><input id="l62" type="radio" name="daytradebrasil" value="Não" onclick="daytrade4()">Não</label><br/>
+       
+           
+      <div class="container-darf1" id="container_darf_33" onclick="taxcalc23()">
+        CALCULAR TRIBUTO 
+        </div>
+      
+      <div class="container-darf2" id="container_darf_43" onclick="unDo23()">
+        VALOR TRIBUTO
+        </div>
+
+      <div class="container-darf3" id="container_darf_53">
+          SALVAR TRIBUTO, CONTINUAR CALCULANDO
+          </div>
+    
+      </div>  
+</div>
+
+<div id="container_domestic_futures">
+  <form>
+    <h2 id="title2"class="display-4 mx-auto">Futuros</h2>
+        <div class="mb-3">
+          <label for="username">Qual o valor de contrato em BRL</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorinvestimentobrl4" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual o valor da realização do contrato em BRL?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="valorvendabrl4" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Qual os custos de corretagem na compra e venda do contrato?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="brokeragecost4" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Quais taxas da Bolsa na operação do contrato (como Emolumentos, Registro e Liquidação)?</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">BRL</span>
+            </div>
+            <input type="text" class="form-control" id="feecost4" placeholder="digite o valor" required>
+       
+          </div>
+        </div>
+
+        <label for="username">Compra e venda no mesmo dia?</label><br/>
+        <label><input id="l54" type="radio" name="daytradebrasil" value="Sim" onclick="daytrade5()">Sim</label><br/>
+        <label><input id="l64" type="radio" name="daytradebrasil" value="Não" onclick="daytrade6()">Não</label><br/>
+       
+           
+      <div class="container-darf1" id="container_darf_34" onclick="taxcalc24()">
+        CALCULAR TRIBUTO 
+        </div>
+      
+      <div class="container-darf2" id="container_darf_44" onclick="unDo24()">
+        VALOR TRIBUTO
+        </div>
+
+        <div class="container-darf3" id="container_darf_54">
+          SALVAR TRIBUTO, CONTINUAR CALCULANDO
+          </div>
+    
+      </div>  
+</div>
+
+<!--<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 mx-auto">Planos</h1>
+  <p class="lead">De forma simples e objetiva, você conseguira realizar seus cálculos para pagamento dos seus ganhos de capital no exterior.</p>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Basic</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">R$30 <small class="text-muted">/ mês</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Até 10 DARFs por mês</li>
+          <li>Cálculo do Tributo</li>
+          <li>Acesso a lives</li>
+          <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Comece agora</button>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Pro</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title"> R$60 <small class="text-muted">/ mês</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+            <li>Até 20 DARFs por mês</li>
+            <li>Cálculo do Tributo</li>
+            <li>Acesso a lives</li>
+            <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Comece agora</button>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Private</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">R$90 <small class="text-muted">/ mês</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Até 30 DARFs por mês</li>
+          <li>15 GB of storage</li>
+          <li>Phone and email support</li>
+          <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Comece agora</button>
+      </div>
+    </div>
+  </div>-->
+  <br>
+  <br>
+  <br>
+
+  <div id="container_social">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!-- Add font awesome icons -->
+    <a href="https://www.facebook.com/pedro.c.carvalho.9" class="fa fa-facebook"></a>
+    <a href="https://twitter.com/xfinapp" class="fa fa-twitter"></a>
+    <a href="https://twitter.com/xfinapp" class="fa fa-instagram"></a>
+    <a href="https://api.whatsapp.com/send?phone=5511993086617&text=quero%20assinar%20o%20tax%20pay" class="fa fa-whatsapp"></a>
+
+</div>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">&copy; Criado por Tax Pay 2017-2020</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Cool stuff</a></li>
+          <li><a class="text-muted" href="#">Random feature</a></li>
+          <li><a class="text-muted" href="#">Team feature</a></li>
+  
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Resource</a></li>
+          <li><a class="text-muted" href="#">Resource name</a></li>
+          <li><a class="text-muted" href="#">Another resource</a></li>
+          <li><a class="text-muted" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Locations</a></li>
+          <li><a class="text-muted" href="#">Privacy</a></li>
+          <li><a class="text-muted" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+
+</html>
